@@ -77,6 +77,7 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -89,6 +90,7 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -103,6 +105,7 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -119,6 +122,7 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -127,7 +131,133 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="lemon\arg_parser.cc" />
+    <ClCompile Include="lemon\base.cc" />
+    <ClCompile Include="lemon\bits\windows.cc" />
+    <ClCompile Include="lemon\color.cc" />
+    <ClCompile Include="lemon\lp_base.cc" />
+    <ClCompile Include="lemon\lp_skeleton.cc" />
+    <ClCompile Include="lemon\random.cc" />
     <ClCompile Include="Main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Arr.h" />
+    <ClInclude Include="ColorStr.h" />
+    <ClInclude Include="gurobi\gurobi_c++.h" />
+    <ClInclude Include="gurobi\gurobi_c.h" />
+    <ClInclude Include="lemon\adaptors.h" />
+    <ClInclude Include="lemon\arg_parser.h" />
+    <ClInclude Include="lemon\assert.h" />
+    <ClInclude Include="lemon\bellman_ford.h" />
+    <ClInclude Include="lemon\bfs.h" />
+    <ClInclude Include="lemon\binomial_heap.h" />
+    <ClInclude Include="lemon\bin_heap.h" />
+    <ClInclude Include="lemon\bits\alteration_notifier.h" />
+    <ClInclude Include="lemon\bits\array_map.h" />
+    <ClInclude Include="lemon\bits\bezier.h" />
+    <ClInclude Include="lemon\bits\default_map.h" />
+    <ClInclude Include="lemon\bits\edge_set_extender.h" />
+    <ClInclude Include="lemon\bits\enable_if.h" />
+    <ClInclude Include="lemon\bits\graph_adaptor_extender.h" />
+    <ClInclude Include="lemon\bits\graph_extender.h" />
+    <ClInclude Include="lemon\bits\lock.h" />
+    <ClInclude Include="lemon\bits\map_extender.h" />
+    <ClInclude Include="lemon\bits\path_dump.h" />
+    <ClInclude Include="lemon\bits\solver_bits.h" />
+    <ClInclude Include="lemon\bits\traits.h" />
+    <ClInclude Include="lemon\bits\variant.h" />
+    <ClInclude Include="lemon\bits\vector_map.h" />
+    <ClInclude Include="lemon\bits\windows.h" />
+    <ClInclude Include="lemon\bucket_heap.h" />
+    <ClInclude Include="lemon\capacity_scaling.h" />
+    <ClInclude Include="lemon\cbc.h" />
+    <ClInclude Include="lemon\christofides_tsp.h" />
+    <ClInclude Include="lemon\circulation.h" />
+    <ClInclude Include="lemon\clp.h" />
+    <ClInclude Include="lemon\color.h" />
+    <ClInclude Include="lemon\concepts\bpgraph.h" />
+    <ClInclude Include="lemon\concepts\digraph.h" />
+    <ClInclude Include="lemon\concepts\graph.h" />
+    <ClInclude Include="lemon\concepts\graph_components.h" />
+    <ClInclude Include="lemon\concepts\heap.h" />
+    <ClInclude Include="lemon\concepts\maps.h" />
+    <ClInclude Include="lemon\concepts\path.h" />
+    <ClInclude Include="lemon\concept_check.h" />
+    <ClInclude Include="lemon\config.h" />
+    <ClInclude Include="lemon\connectivity.h" />
+    <ClInclude Include="lemon\core.h" />
+    <ClInclude Include="lemon\cost_scaling.h" />
+    <ClInclude Include="lemon\counter.h" />
+    <ClInclude Include="lemon\cplex.h" />
+    <ClInclude Include="lemon\cycle_canceling.h" />
+    <ClInclude Include="lemon\dfs.h" />
+    <ClInclude Include="lemon\dheap.h" />
+    <ClInclude Include="lemon\dijkstra.h" />
+    <ClInclude Include="lemon\dim2.h" />
+    <ClInclude Include="lemon\dimacs.h" />
+    <ClInclude Include="lemon\edge_set.h" />
+    <ClInclude Include="lemon\edmonds_karp.h" />
+    <ClInclude Include="lemon\elevator.h" />
+    <ClInclude Include="lemon\error.h" />
+    <ClInclude Include="lemon\euler.h" />
+    <ClInclude Include="lemon\fib_heap.h" />
+    <ClInclude Include="lemon\fractional_matching.h" />
+    <ClInclude Include="lemon\full_graph.h" />
+    <ClInclude Include="lemon\glpk.h" />
+    <ClInclude Include="lemon\gomory_hu.h" />
+    <ClInclude Include="lemon\graph_to_eps.h" />
+    <ClInclude Include="lemon\greedy_tsp.h" />
+    <ClInclude Include="lemon\grid_graph.h" />
+    <ClInclude Include="lemon\grosso_locatelli_pullan_mc.h" />
+    <ClInclude Include="lemon\hao_orlin.h" />
+    <ClInclude Include="lemon\hartmann_orlin_mmc.h" />
+    <ClInclude Include="lemon\howard_mmc.h" />
+    <ClInclude Include="lemon\hypercube_graph.h" />
+    <ClInclude Include="lemon\insertion_tsp.h" />
+    <ClInclude Include="lemon\karp_mmc.h" />
+    <ClInclude Include="lemon\kruskal.h" />
+    <ClInclude Include="lemon\lgf_reader.h" />
+    <ClInclude Include="lemon\lgf_writer.h" />
+    <ClInclude Include="lemon\list_graph.h" />
+    <ClInclude Include="lemon\lp.h" />
+    <ClInclude Include="lemon\lp_base.h" />
+    <ClInclude Include="lemon\lp_skeleton.h" />
+    <ClInclude Include="lemon\maps.h" />
+    <ClInclude Include="lemon\matching.h" />
+    <ClInclude Include="lemon\math.h" />
+    <ClInclude Include="lemon\max_cardinality_search.h" />
+    <ClInclude Include="lemon\min_cost_arborescence.h" />
+    <ClInclude Include="lemon\nagamochi_ibaraki.h" />
+    <ClInclude Include="lemon\nauty_reader.h" />
+    <ClInclude Include="lemon\nearest_neighbor_tsp.h" />
+    <ClInclude Include="lemon\network_simplex.h" />
+    <ClInclude Include="lemon\opt2_tsp.h" />
+    <ClInclude Include="lemon\pairing_heap.h" />
+    <ClInclude Include="lemon\path.h" />
+    <ClInclude Include="lemon\planarity.h" />
+    <ClInclude Include="lemon\preflow.h" />
+    <ClInclude Include="lemon\quad_heap.h" />
+    <ClInclude Include="lemon\radix_heap.h" />
+    <ClInclude Include="lemon\radix_sort.h" />
+    <ClInclude Include="lemon\random.h" />
+    <ClInclude Include="lemon\smart_graph.h" />
+    <ClInclude Include="lemon\soplex.h" />
+    <ClInclude Include="lemon\static_graph.h" />
+    <ClInclude Include="lemon\suurballe.h" />
+    <ClInclude Include="lemon\time_measure.h" />
+    <ClInclude Include="lemon\tolerance.h" />
+    <ClInclude Include="lemon\unionfind.h" />
+    <ClInclude Include="MatchingSolver.h" />
+    <ClInclude Include="MaxMatchingByDlib.h" />
+    <ClInclude Include="MaxMatchingByGurobi.h" />
+    <ClInclude Include="MaxMatchingByLemon.h" />
+    <ClInclude Include="MinMatchingByJohnWeaver.h" />
+    <ClInclude Include="MinMatchingByRobertPilgrim.h" />
+    <ClInclude Include="MinMatchingBySamHocevar.h" />
+    <ClInclude Include="MaxMatchingByTopCoder.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Natvis Include="..\arr.natvis" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

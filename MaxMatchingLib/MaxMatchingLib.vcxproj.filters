@@ -13,10 +13,384 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Lemon">
+      <UniqueIdentifier>{626ffee2-5d52-4b4b-a71a-2de0d67c53c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Gurobi">
+      <UniqueIdentifier>{6d57e87c-2a4f-4229-95af-b4b14dd91be1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="lemon\arg_parser.cc">
+      <Filter>Lemon</Filter>
+    </ClCompile>
+    <ClCompile Include="lemon\base.cc">
+      <Filter>Lemon</Filter>
+    </ClCompile>
+    <ClCompile Include="lemon\bits\windows.cc">
+      <Filter>Lemon</Filter>
+    </ClCompile>
+    <ClCompile Include="lemon\color.cc">
+      <Filter>Lemon</Filter>
+    </ClCompile>
+    <ClCompile Include="lemon\lp_base.cc">
+      <Filter>Lemon</Filter>
+    </ClCompile>
+    <ClCompile Include="lemon\lp_skeleton.cc">
+      <Filter>Lemon</Filter>
+    </ClCompile>
+    <ClCompile Include="lemon\random.cc">
+      <Filter>Lemon</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ColorStr.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MaxMatchingByTopCoder.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Arr.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MatchingSolver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MinMatchingBySamHocevar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MinMatchingByRobertPilgrim.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MinMatchingByJohnWeaver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MaxMatchingByDlib.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MaxMatchingByLemon.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\adaptors.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\arg_parser.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\assert.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\bellman_ford.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\bfs.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\binomial_heap.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\bin_heap.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\bits\alteration_notifier.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\bits\array_map.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\bits\bezier.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\bits\default_map.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\bits\edge_set_extender.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\bits\enable_if.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\bits\graph_adaptor_extender.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\bits\graph_extender.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\bits\lock.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\bits\map_extender.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\bits\path_dump.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\bits\solver_bits.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\bits\traits.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\bits\variant.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\bits\vector_map.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\bits\windows.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\bucket_heap.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\capacity_scaling.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\cbc.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\christofides_tsp.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\circulation.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\clp.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\color.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\concepts\bpgraph.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\concepts\digraph.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\concepts\graph.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\concepts\graph_components.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\concepts\heap.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\concepts\maps.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\concepts\path.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\concept_check.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\config.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\connectivity.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\core.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\cost_scaling.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\counter.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\cplex.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\cycle_canceling.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\dfs.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\dheap.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\dijkstra.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\dim2.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\dimacs.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\edge_set.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\edmonds_karp.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\elevator.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\error.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\euler.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\fib_heap.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\fractional_matching.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\full_graph.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\glpk.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\gomory_hu.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\graph_to_eps.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\greedy_tsp.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\grid_graph.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\grosso_locatelli_pullan_mc.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\hao_orlin.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\hartmann_orlin_mmc.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\howard_mmc.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\hypercube_graph.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\insertion_tsp.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\karp_mmc.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\kruskal.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\lgf_reader.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\lgf_writer.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\list_graph.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\lp.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\lp_base.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\lp_skeleton.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\maps.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\matching.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\math.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\max_cardinality_search.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\min_cost_arborescence.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\nagamochi_ibaraki.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\nauty_reader.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\nearest_neighbor_tsp.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\network_simplex.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\opt2_tsp.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\pairing_heap.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\path.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\planarity.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\preflow.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\quad_heap.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\radix_heap.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\radix_sort.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\random.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\smart_graph.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\soplex.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\static_graph.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\suurballe.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\time_measure.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\tolerance.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="lemon\unionfind.h">
+      <Filter>Lemon</Filter>
+    </ClInclude>
+    <ClInclude Include="MaxMatchingByGurobi.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gurobi\gurobi_c.h">
+      <Filter>Gurobi</Filter>
+    </ClInclude>
+    <ClInclude Include="gurobi\gurobi_c++.h">
+      <Filter>Gurobi</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Natvis Include="..\arr.natvis" />
   </ItemGroup>
 </Project>

@@ -1,0 +1,180 @@
+////////////////////////////////
+/// usage : 1.	
+/// 
+/// note  : 1.	
+////////////////////////////////
+
+#ifndef SMART_SZX_GOAL_MAX_MATCHING_BY_TOP_CODER_H
+#define SMART_SZX_GOAL_MAX_MATCHING_BY_TOP_CODER_H
+
+
+#include "Arr.h"
+
+
+namespace szx {
+
+struct MaxMatchingByTopCoder { // https://www.topcoder.com/community/competitive-programming/tutorials/assignment-problem-and-hungarian-algorithm/
+    MaxMatchingByTopCoder(const Arr2D<int> &costMat)
+        : cost(costMat), n(costMat.size1()), max_match(0),
+        lx(n), ly(n), xy(n), yx(n), S(n), T(n), slack(n), slackx(n), prev(n) {
+        init_labels();
+    }
+
+
+    const Arr<int>& solve() { // maximize the total cost.
+        if (cost.size1() != cost.size2()) { return xy; }
+
+        augment();
+        return xy;
+    }
+
+    Arr2D<int>& costs() { return cost; }
+    int& costs(int r, int c) { return cost[r][c]; }
+
+
+protected:
+    static constexpr int INF = 100000000;
+
+
+    Arr2D<int> cost; // cost matrix.
+    int n; // n workers and n jobs.
+    int max_match; // number of matched node pairs.
+    Arr<int> lx; // labels of X part.
+    Arr<int> ly; // labels of Y part.
+    Arr<int> xy; // xy[x] - vertex that is matched with x.
+    Arr<int> yx; // yx[y] - vertex that is matched with y.
+    Arr<bool> S;
+    Arr<bool> T;
+    Arr<int> slack;
+    Arr<int> slackx; // slackx[y] such a vertex, that l(slackx[y]) + l(y) - w(slackx[y],y) = slack[y].
+    Arr<int> prev; // array for memorizing alternating paths.
+
+
+    void init_labels() {
+        xy.reset(Arr<int>::ResetOption::AllBits1);
+        yx.reset(Arr<int>::ResetOption::AllBits1);
+        lx.reset(Arr<int>::ResetOption::AllBits0);
+        ly.reset(Arr<int>::ResetOption::AllBits0);
+        for (int x = 0; x < n; x++)
+            for (int y = 0; y < n; y++)
+                lx[x] = std::max(lx[x], cost[x][y]);
+    }
+
+    void update_labels() {
+        int x, y, delta = INF; //init delta as infinity
+        for (y = 0; y < n; y++) //calculate delta using slack
+            if (!T[y])
+                delta = std::min(delta, slack[y]);
+        for (x = 0; x < n; x++) //update X labels
+            if (S[x]) lx[x] -= delta;
+        for (y = 0; y < n; y++) //update Y labels
+            if (T[y]) ly[y] += delta;
+        for (y = 0; y < n; y++) //update slack array
+            if (!T[y])
+                slack[y] -= delta;
+    }
+
+    void add_to_tree(int x, int prevx)
+    //x - current vertex,prevx - vertex from X before x in the alternating path,
+    //so we add edges (prevx, xy[x]), (xy[x], x)
+    {
+        S[x] = true; //add x to S
+        prev[x] = prevx; //we need this when augmenting
+        for (int y = 0; y < n; y++) //update slacks, because we add new vertex to S
+            if (lx[x] + ly[y] - cost[x][y] < slack[y]) {
+                slack[y] = lx[x] + ly[y] - cost[x][y];
+                slackx[y] = x;
+            }
+    }
+
+    void augment() //main function of the algorithm
+    {
+        if (max_match == n) return; //check wether matching is already perfect
+        int x, y, root; //just counters and root vertex
+
+
+
+
+        // OPTIMIZE[szx][0]: make it member variable.
+        Arr<int> q(n); // queue for bfs.
+
+
+
+
+        int wr = 0, rd = 0; // wr,rd - write and read
+        //pos in queue
+        S.reset(Arr<bool>::ResetOption::AllBits0); //init set S
+        T.reset(Arr<bool>::ResetOption::AllBits0); //init set T
+        prev.reset(Arr<int>::ResetOption::AllBits1); //init set prev - for the alternating tree
+        for (x = 0; x < n; x++) //finding root of the tree
+            if (xy[x] == -1) {
+                q[wr++] = root = x;
+                prev[x] = -2;
+                S[x] = true;
+                break;
+            }
+        for (y = 0; y < n; y++) //initializing slack array
+        {
+            slack[y] = lx[root] + ly[y] - cost[root][y];
+            slackx[y] = root;
+        }
+
+        while (true) //main cycle
+        {
+            while (rd < wr) //building tree with bfs cycle
+            {
+                x = q[rd++]; //current vertex from X part
+                for (y = 0; y < n; y++) //iterate through all edges in equality graph
+                    if (cost[x][y] == lx[x] + ly[y] && !T[y]) {
+                        if (yx[y] == -1) break; //an exposed vertex in Y found, so
+                        //augmenting path exists!
+                        T[y] = true; //else just add y to T,
+                        q[wr++] = yx[y]; //add vertex yx[y], which is matched
+                        //with y, to the queue
+                        add_to_tree(yx[y], x); //add edges (x,y) and (y,yx[y]) to the tree
+                    }
+                if (y < n) break; //augmenting path found!
+            }
+            if (y < n) break; //augmenting path found!
+            update_labels(); //augmenting path not found, so improve labeling
+            wr = rd = 0;
+            for (y = 0; y < n; y++)
+            //in this cycle we add edges that were added to the equality graph as a
+            //result of improving the labeling, we add edge (slackx[y], y) to the tree if
+            //and only if !T[y] && slack[y] == 0, also with this edge we add another one
+            //(y, yx[y]) or augment the matching, if y was exposed
+                if (!T[y] && slack[y] == 0) {
+                    if (yx[y] == -1) //exposed vertex in Y found - augmenting path exists!
+                    {
+                        x = slackx[y];
+                        break;
+                    } else {
+                        T[y] = true; //else just add y to T,
+                        if (!S[yx[y]]) {
+                            q[wr++] = yx[y]; //add vertex yx[y], which is matched with
+                            //y, to the queue
+                            add_to_tree(yx[y], slackx[y]); //and add edges (x,y) and (y,
+                            //yx[y]) to the tree
+                        }
+                    }
+                }
+            if (y < n) break; //augmenting path found!
+        }
+        if (y < n) //we found augmenting path!
+        {
+            max_match++; //increment matching
+            //in this cycle we inverse edges along augmenting path
+            for (int cx = x, cy = y, ty; cx != -2; cx = prev[cx], cy = ty) {
+                ty = xy[cx];
+                yx[cy] = cx;
+                xy[cx] = cy;
+            }
+            augment(); //recall function, go to step 1 of the algorithm
+        }
+    }//end of augment() function
+};
+
+}
+
+
+#endif // SMART_SZX_GOAL_MAX_MATCHING_BY_TOP_CODER_H
