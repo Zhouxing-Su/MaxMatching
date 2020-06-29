@@ -30,9 +30,6 @@ struct MinMatchingByJohnWeaver { // https://github.com/saebyn/munkres-cpp
         return assignment;
     }
 
-    Arr2D<int>& costs() { return matrix; }
-    int& costs(int r, int c) { return matrix[r][c]; }
-
 
 protected:
     Arr<int> assignment;

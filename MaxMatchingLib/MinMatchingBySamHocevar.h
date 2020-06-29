@@ -38,9 +38,6 @@ struct MinMatchingBySamHocevar { // https://github.com/maandree/hungarian-algori
         return assignment;
     }
 
-    Arr2D<int>& costs() { return cost; }
-    int& costs(int r, int c) { return cost[r][c]; }
-
 
 protected:
     using cell = long;

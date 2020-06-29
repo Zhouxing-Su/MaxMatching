@@ -15,8 +15,8 @@ namespace szx {
 
 struct MaxMatchingByTopCoder { // https://www.topcoder.com/community/competitive-programming/tutorials/assignment-problem-and-hungarian-algorithm/
     MaxMatchingByTopCoder(const Arr2D<int> &costMat)
-        : cost(costMat), n(costMat.size1()), max_match(0),
-        lx(n), ly(n), xy(n), yx(n), S(n), T(n), slack(n), slackx(n), prev(n) {
+        : cost(costMat), n(costMat.size1()), max_match(0), lx(n), ly(n),
+        xy(n), yx(n), S(n), T(n), slack(n), slackx(n), prev(n), q(n) {
         init_labels();
     }
 
@@ -27,9 +27,6 @@ struct MaxMatchingByTopCoder { // https://www.topcoder.com/community/competitive
         augment();
         return xy;
     }
-
-    Arr2D<int>& costs() { return cost; }
-    int& costs(int r, int c) { return cost[r][c]; }
 
 
 protected:
@@ -48,6 +45,7 @@ protected:
     Arr<int> slack;
     Arr<int> slackx; // slackx[y] such a vertex, that l(slackx[y]) + l(y) - w(slackx[y],y) = slack[y].
     Arr<int> prev; // array for memorizing alternating paths.
+    Arr<int> q; // queue for bfs.
 
 
     void init_labels() {
@@ -91,16 +89,6 @@ protected:
     {
         if (max_match == n) return; //check wether matching is already perfect
         int x, y, root; //just counters and root vertex
-
-
-
-
-        // OPTIMIZE[szx][0]: make it member variable.
-        Arr<int> q(n); // queue for bfs.
-
-
-
-
         int wr = 0, rd = 0; // wr,rd - write and read
         //pos in queue
         S.reset(Arr<bool>::ResetOption::AllBits0); //init set S

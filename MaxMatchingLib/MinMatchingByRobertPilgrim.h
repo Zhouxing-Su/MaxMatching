@@ -32,9 +32,6 @@ struct MinMatchingByRobertPilgrim { // http://csclab.murraystate.edu/~bob.pilgri
         return assignment;
     }
 
-    Arr2D<int>& costs() { return C; }
-    int& costs(int r, int c) { return C[r][c]; }
-
 
 protected:
     int nrow;

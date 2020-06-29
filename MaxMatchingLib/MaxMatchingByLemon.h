@@ -175,9 +175,6 @@ struct MaxMatchingByLemon { // http://lemon.cs.elte.hu/trac/lemon
         //return solveMcfOnSmartDigraph<lemon::CycleCanceling>();
     }
 
-    Arr2D<int>& costs() { return cost; }
-    int& costs(int r, int c) { return cost[r][c]; }
-
 
 protected:
     Arr2D<int> cost;

@@ -3,6 +3,8 @@
 #include <chrono>
 #include <typeinfo>
 
+#include <cstdlib>
+
 #include "Arr.h"
 #include "ColorStr.h"
 
@@ -28,9 +30,10 @@ void printSln(const Arr2D<int> &cost, const Arr<int> &assignment) {
     cout << " | " << setw(7) << obj << " |" << endl;
 }
 
-Arr2D<int> generateInstance(int n, int m, int seed = 0) {
+Arr2D<int> generateSquareInstance(int n, int m, int seed = 0) {
+    if (n < m) { throw "n < m is not allowed."; }
     srand(seed);
-    Arr2D<int> cost(n, m);
+    Arr2D<int> cost(n, n); cost.reset(Arr2D<int>::ResetOption::AllBits0);
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < m; ++j) {
             cost[i][j] = rand() % MaxCost;
@@ -38,11 +41,10 @@ Arr2D<int> generateInstance(int n, int m, int seed = 0) {
     }
     return cost;
 }
-Arr2D<int> generateInstance(int n) { return generateInstance(n, n); }
 
 template<typename MaxMatching>
 void test(int n, int m, bool toggle = false) {
-    Arr2D<int> cost(generateInstance(n, m));
+    Arr2D<int> cost(generateSquareInstance(n, m));
 
     chrono::steady_clock::time_point start = chrono::steady_clock::now();
 
@@ -65,8 +67,8 @@ int main() {
 
     test<MaxMatchingByTopCoder>(n, m);
     test<MinMatchingBySamHocevar>(n, m, true);
-    test<MinMatchingByRobertPilgrim>(n, m, true);
-    test<MinMatchingByJohnWeaver>(n, m, true);
+    //test<MinMatchingByRobertPilgrim>(n, m, true); // too slow.
+    //test<MinMatchingByJohnWeaver>(n, m, true); // too slow.
     test<MaxMatchingByDlib>(n, m);
     //test<MaxMatchingByLemon>(n, m);
     test<MaxMatchingByLemonPerfectMatchingOnSmartBpGraph>(n, m);
@@ -85,8 +87,8 @@ int main() {
 
     test<MaxMatchingByTopCoder>(n, m, true);
     test<MinMatchingBySamHocevar>(n, m);
-    test<MinMatchingByRobertPilgrim>(n, m);
-    test<MinMatchingByJohnWeaver>(n, m);
+    //test<MinMatchingByRobertPilgrim>(n, m); // too slow.
+    //test<MinMatchingByJohnWeaver>(n, m); // too slow.
     test<MaxMatchingByDlib>(n, m, true);
     //test<MaxMatchingByLemon>(n, m, true);
     test<MaxMatchingByLemonPerfectMatchingOnSmartBpGraph>(n, m, true);

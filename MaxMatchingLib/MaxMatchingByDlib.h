@@ -27,9 +27,6 @@ struct MaxMatchingByDlib {
         return xy;
     }
 
-    Arr2D<int>& costs() { return cost; }
-    int& costs(int r, int c) { return cost[r][c]; }
-
 
 protected:
     template<typename T, typename IndexType = int>
